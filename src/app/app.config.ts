@@ -4,7 +4,6 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {getAuth, provideAuth} from "@angular/fire/auth";
-import {getAnalytics} from "@angular/fire/analytics";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAtn-g4uiyo9-EFTIPqKgZfOGf3nOSUO_0",
@@ -16,9 +15,9 @@ const firebaseConfig = {
     measurementId: "G-GR1F161BB5"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 export const appConfig: ApplicationConfig = {
-    providers: [provideRouter(routes), importProvidersFrom([provideFirebaseApp(() => app), provideAuth(() => getAuth())])]
+    providers: [provideRouter(routes), importProvidersFrom([provideFirebaseApp(() => initializeApp(firebaseConfig)), provideAuth(() => getAuth())])]
 };
