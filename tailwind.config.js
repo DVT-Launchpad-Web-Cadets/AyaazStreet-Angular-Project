@@ -5,9 +5,9 @@ module.exports = {
     ],
     theme: {
         colors: {
-            'white': '#efefef',
+            'white': '#f1f1f1',
             'black': '#111111',
-            'primary': '#ee7850',
+            'primary': '#d6250d',
         },
         fontFamily: {
             "montserrat": ['Montserrat', 'sans-serif'],

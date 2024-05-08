@@ -1,0 +1,70 @@
+<nz-layout class="h-screen font-montserrat">
+    <nz-layout
+            class="z-10 bg-none lg:bg-white dark:lg:bg-black text-black dark:text-white">
+        <nz-content class="flex justify-center items-center text-center">
+            <section
+                    class="bg-white dark:bg-black p-12 w-full !mx-12 sm:!mx-24 md:!mx-40 lg:p-0 flex-col h-fit lg:!m-8 my-16 space-y-4 lg:px-12 xl:px-14 2xl:px-16">
+                <div class="w-8 m-auto cursor-pointer">
+                    <img alt="Logo"
+                         class="!relative"
+                         fill
+                         ngSrc="../../../../assets/logo.webp"
+                         routerLink="/"
+                    />
+                </div>
+                <h1 class="text-black dark:text-white text-3xl sm:text-4xl font-semibold">Create your account</h1>
+                <p>Already have an account? <a class="text-primary hover:text-primary" routerLink="/login">Sign
+                    In</a>
+                </p>
+                <form class="flex flex-col space-y-4">
+                    <label class="text-start" for="username">Username *</label>
+                    <nz-input-group [nzPrefix]="prefixTemplateUser"
+                                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-base px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
+                        <input class="bg-white" id="username"
+                               name="email" nz-input placeholder="JohnDoe" required type="text"/>
+                    </nz-input-group>
+                    <label class="text-start" for="email">Email address *</label>
+                    <nz-input-group [nzPrefix]="prefixTemplateUser"
+                                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-base px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
+                        <input class="bg-white" id="email"
+                               name="email" nz-input placeholder="example@gmail.com" required type="email"/>
+                    </nz-input-group>
+                    <label class="text-start" for="password">Password *</label>
+                    <nz-input-group [nzPrefix]="prefixTemplatePassword" [nzSuffix]="suffixTemplateTogglePassword"
+                                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-lg px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
+                        <input [type]="showPassword ? 'text' : 'password'" class="bg-white" id="password"
+                               name="password" nz-input placeholder="••••••••••••" required/>
+                    </nz-input-group>
+                    <label [(ngModel)]="termsAndConditions"
+                           class="w-fit text-start bg-white dark:bg-black text-black dark:text-white"
+                           name="termsAndConditions"
+                           nz-checkbox required>I agree
+                        to the terms and
+                        conditions</label>
+                    <button class="font-medium !mt-6 h-10 lg:h-12 w-full px-4 lg:px-6 text-sm lg:text-base bg-primary border-primary text-white hover:bg-primary hover:border-primary hover:text-white focus:bg-primary focus:border-black dark:focus:border-white"
+                            nz-button
+                            nzShape="round"
+                            nzType="primary"
+                            routerLink="/"
+                            type="submit">
+                        Sign Up
+                    </button>
+                </form>
+            </section>
+            <img alt="Collage of products"
+                 class="-z-10 w-full lg:w-1/2 object-cover h-full absolute lg:relative lg:block"
+                 height="1024" ngSrc="./assets/authentication-background.png" priority width="1792"/>
+        </nz-content>
+    </nz-layout>
+</nz-layout>
+
+
+<ng-template #prefixTemplateUser><span class="mr-1" nz-icon nzType="user"></span></ng-template>
+<ng-template #prefixTemplatePassword><span class="mr-1" nz-icon nzType="key"></span></ng-template>
+<ng-template #suffixTemplateTogglePassword>
+    <button (click)="togglePasswordVisibility()" id="passwordVisibility" title="passwordVisibility"><span
+            [nzType]="showPassword ? 'eye-invisible' : 'eye'" class="ml-1"
+            nz-icon></span>
+    </button>
+</ng-template>
+

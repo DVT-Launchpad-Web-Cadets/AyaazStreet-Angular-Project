@@ -1,7 +1,7 @@
 import {Routes} from "@angular/router";
 import {LandingPageComponent} from "./components/landing-page/landing-page.component";
-import {LoginPageComponent} from "./components/login-page/login-page.component";
-import {RegisterPageComponent} from "./components/register-page/register-page.component";
+import {LoginPageComponent} from "./components/authentication/login-page/login-page.component";
+import {RegisterPageComponent} from "./components/authentication/register-page/register-page.component";
 
 export const routes: Routes = [
     {
