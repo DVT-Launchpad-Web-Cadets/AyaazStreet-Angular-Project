@@ -1,0 +1,30 @@
+.ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open {
+  color: #d6250d;
+}
+
+.ant-menu-item-selected, .ant-menu-item-selected a, .ant-menu-item-selected a:hover, .ant-menu-item > .ant-badge a:hover {
+  color: #d6250d;
+}
+
+.ant-menu-inline .ant-menu-item::after, .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after {
+  border: none;
+}
+
+.ant-menu-item-selected .selected-icon {
+  color: #d6250d;
+}
+.ant-menu-item-selected .selected-container {
+  background: #d6250d;
+  border-radius: 10px;
+  color: #efefef;
+}
+
+.drawer-left {
+  left: -20rem;
+}
+
+.drawer-right {
+  left: 0;
+}
+
+/*# sourceMappingURL=admin-page.component.css.map */

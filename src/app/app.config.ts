@@ -11,6 +11,11 @@ import {FormsModule} from '@angular/forms';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideHttpClient} from '@angular/common/http';
 import {environment} from "../environments/environment.development";
+import {provideState, provideStore} from '@ngrx/store';
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {provideEffects} from "@ngrx/effects";
+import {adminFeatureKey, adminReducer} from "./stores/admin/reducers";
+import {adminEffects} from "./stores/admin/effects";
 
 registerLocaleData(en);
 
@@ -19,7 +24,12 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         importProvidersFrom([
             provideFirebaseApp(() => initializeApp(environment.FIREBASE_CONFIG)),
+            provideFirestore(() => getFirestore()),
             provideAuth(() => getAuth()),
-        ]), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(),
+            FormsModule
+        ]), provideNzI18n(en_US), provideAnimationsAsync(), provideHttpClient(),
+        provideStore(),
+        provideState({name: adminFeatureKey, reducer: adminReducer}),
+        provideEffects(adminEffects),
     ],
 };

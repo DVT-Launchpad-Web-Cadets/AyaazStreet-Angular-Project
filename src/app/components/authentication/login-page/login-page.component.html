@@ -16,30 +16,7 @@
                 <p>Don't have an account? <a class="text-primary hover:text-primary"
                                              routerLink="/register">Sign Up</a>
                 </p>
-                <form class="flex flex-col space-y-4">
-                    <label class="text-start" for="email">Email address *</label>
-                    <nz-input-group [nzPrefix]="prefixTemplateUser"
-                                    class="text-base bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-base px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
-                        <input class="bg-white" id="email"
-                               name="email" nz-input placeholder="example@gmail.com" required type="email"/>
-                    </nz-input-group>
-                    <label class="text-start" for="password">Password *</label>
-                    <nz-input-group [nzPrefix]="prefixTemplatePassword" [nzSuffix]="suffixTemplateTogglePassword"
-                                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-lg px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
-                        <input [type]="showPassword ? 'text' : 'password'" class="bg-white" id="password"
-                               name="password" nz-input placeholder="••••••••••••" required/>
-                    </nz-input-group>
-                    <a class="text-start !mt-2 underline hover:text-primary hover:underline active:text-primary">Forgot
-                        password?</a>
-                    <button class="font-medium !mt-6 h-10 lg:h-12 w-full px-4 lg:px-6 text-sm lg:text-base bg-primary border-primary text-white hover:bg-primary hover:border-primary hover:text-white focus:bg-primary focus:border-black dark:focus:border-white"
-                            nz-button
-                            nzShape="round"
-                            nzType="primary"
-                            routerLink="/"
-                            type="submit">
-                        Log In
-                    </button>
-                </form>
+                <app-login-form></app-login-form>
             </section>
             <img alt="Collage of products"
                  class="-z-10 w-full lg:w-1/2 object-cover h-full absolute lg:relative lg:block"
@@ -47,14 +24,4 @@
         </nz-content>
     </nz-layout>
 </nz-layout>
-
-
-<ng-template #prefixTemplateUser><span class="mr-1" nz-icon nzType="user"></span></ng-template>
-<ng-template #prefixTemplatePassword><span class="mr-1" nz-icon nzType="key"></span></ng-template>
-<ng-template #suffixTemplateTogglePassword>
-    <button (click)="togglePasswordVisibility()" id="passwordVisibility" title="passwordVisibility"><span
-            [nzType]="showPassword ? 'eye-invisible' : 'eye'" class="ml-1"
-            nz-icon></span>
-    </button>
-</ng-template>
 

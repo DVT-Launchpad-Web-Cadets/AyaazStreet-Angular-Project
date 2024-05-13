@@ -1,1 +1,42 @@
-<p>register-form works!</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="flex flex-col space-y-4">
+    <label class="text-start" for="username">Username *</label>
+    <nz-input-group [nzPrefix]="prefixTemplateUser"
+                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-base px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
+        <input class="bg-white" formControlName="username" id="username"
+               name="username" nz-input placeholder="johndoe" required type="text"/>
+    </nz-input-group>
+    <label class="text-start" for="email">Email address *</label>
+    <nz-input-group [nzPrefix]="prefixTemplateUser"
+                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-base px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
+        <input class="bg-white" formControlName="email" id="email"
+               name="email" nz-input placeholder="example@gmail.com" required type="email"/>
+    </nz-input-group>
+    <label class="text-start" for="password">Password *</label>
+    <nz-input-group [nzPrefix]="prefixTemplatePassword" [nzSuffix]="suffixTemplateTogglePassword"
+                    class="bg-white !mt-1 rounded-full h-10 lg:h-12 lg:text-lg px-4 lg:px-5 hover:!border-primary focus-within:border-primary focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.2)] dark:focus-within:shadow-[0px_0px_0px_2px_rgba(197,56,35,0.8)]">
+        <input [type]="showPassword ? 'text' : 'password'" class="bg-white" formControlName="password" id="password"
+               name="password" nz-input placeholder="••••••••••••" required/>
+    </nz-input-group>
+    <label (click)="onCheckBoxClick($event)"
+           class="w-fit text-start bg-white dark:bg-black text-black dark:text-white" nz-checkbox>I agree
+        to the terms and
+        conditions</label>
+    <button [disabled]="!registerForm.valid"
+            class="font-medium !mt-6 h-10 lg:h-12 w-full px-4 lg:px-6 text-sm lg:text-base bg-primary border-primary text-white hover:bg-primary hover:border-primary hover:text-white focus:bg-primary focus:border-black dark:focus:border-white"
+            nz-button
+            nzShape="round"
+            nzType="primary"
+            routerLink="/admin"
+            type="submit">
+        Sign Up
+    </button>
+</form>
+
+<ng-template #prefixTemplateUser><span class="mr-1" nz-icon nzType="user"></span></ng-template>
+<ng-template #prefixTemplatePassword><span class="mr-1" nz-icon nzType="key"></span></ng-template>
+<ng-template #suffixTemplateTogglePassword>
+    <button (click)="togglePasswordVisibility()" id="passwordVisibility" title="passwordVisibility" type="button"><span
+            [nzType]="showPassword ? 'eye-invisible' : 'eye'" class="ml-1"
+            nz-icon></span>
+    </button>
+</ng-template>

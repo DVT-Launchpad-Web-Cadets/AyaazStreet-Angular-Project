@@ -7,6 +7,7 @@ import {NzIconDirective} from "ng-zorro-antd/icon";
 import {NzInputDirective, NzInputGroupComponent} from "ng-zorro-antd/input";
 import {RouterLink} from "@angular/router";
 import {NzCheckboxComponent} from "ng-zorro-antd/checkbox";
+import {RegisterFormComponent} from "./register-form/register-form.component";
 
 @Component({
     selector: "app-register-page",
@@ -21,16 +22,12 @@ import {NzCheckboxComponent} from "ng-zorro-antd/checkbox";
         NzInputGroupComponent,
         NzLayoutComponent,
         RouterLink,
-        NzCheckboxComponent
+        NzCheckboxComponent,
+        RegisterFormComponent
     ],
     templateUrl: "./register-page.component.html",
     styleUrl: "./register-page.component.scss",
 })
 export class RegisterPageComponent {
-    showPassword = false;
-    termsAndConditions = false;
 
-    togglePasswordVisibility() {
-        this.showPassword = !this.showPassword;
-    }
 }

@@ -6,6 +6,7 @@ import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {NzInputDirective, NzInputGroupComponent} from "ng-zorro-antd/input";
 import {NzIconDirective} from "ng-zorro-antd/icon";
+import {LoginFormComponent} from "./login-form/login-form.component";
 
 @Component({
     selector: "app-login-page",
@@ -20,15 +21,12 @@ import {NzIconDirective} from "ng-zorro-antd/icon";
         FormsModule,
         NzInputDirective,
         NzInputGroupComponent,
-        NzIconDirective
+        NzIconDirective,
+        LoginFormComponent
     ],
     templateUrl: "./login-page.component.html",
     styleUrl: "./login-page.component.scss",
 })
 export class LoginPageComponent {
-    showPassword = false;
 
-    togglePasswordVisibility() {
-        this.showPassword = !this.showPassword;
-    }
 }
